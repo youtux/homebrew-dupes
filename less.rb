@@ -4,8 +4,8 @@ class Less < Formula
   sha256 "e536c7819ede54b3d487f0ffc4c14b3620bed83734d92a81e89f62346db0fcac"
 
   devel do
-    url "http://greenwoodsoftware.com/less/less-471.tar.gz"
-    sha256 "37f613fa9a526378788d790a92217d59b523574cf7159f6538da8564b3fb27f8"
+    url "http://www.greenwoodsoftware.com/less/less-481.tar.gz"
+    sha256 "3fa38f2cf5e9e040bb44fffaa6c76a84506e379e47f5a04686ab78102090dda5"
   end
 
   depends_on "pcre" => :optional
