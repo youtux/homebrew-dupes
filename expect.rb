@@ -34,8 +34,13 @@ class Expect < Formula
     args << "--enable-shared"
     args << "--enable-threads" if build.with? "threads"
     args << "--enable-64bit" if MacOS.prefer_64_bit?
-    args << "--with-tcl=#{Formula["tcl-tk"].opt_prefix}/lib" if build.with? "brewed-tk"
 
+    if build.with? "brewed-tk"
+      args << "--with-tcl=#{Formula["tcl-tk"].opt_prefix}/lib"
+    else
+      ENV.prepend "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers/tcl-private"
+      args << "--with-tcl=#{MacOS.sdk_path}/usr/lib"
+    end
     # Regenerate configure script. Remove after patch applied in newer
     # releases.
     system "autoreconf", "--force", "--install", "--verbose"
