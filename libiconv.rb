@@ -9,19 +9,21 @@ class Libiconv < Formula
   option :universal
 
   patch do
-    url "https://trac.macports.org/export/89276/trunk/dports/textproc/libiconv/files/patch-Makefile.devel"
+    url "https://raw.githubusercontent.com/Homebrew/patches/9be2793af/libiconv/patch-Makefile.devel"
     sha256 "ad9b6da1a82fc4de27d6f7086a3382993a0b16153bc8e8a23d7b5f9334ca0a42"
   end
 
   patch do
-    url "https://trac.macports.org/export/89276/trunk/dports/textproc/libiconv/files/patch-utf8mac.diff"
+    url "https://raw.githubusercontent.com/Homebrew/patches/9be2793af/libiconv/patch-utf8mac.diff"
     sha256 "e8128732f22f63b5c656659786d2cf76f1450008f36bcf541285268c66cabeab"
   end
+
   patch :DATA
 
   def install
     ENV.universal_binary if build.universal?
     ENV.j1
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
