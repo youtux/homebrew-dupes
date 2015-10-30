@@ -4,6 +4,12 @@ class Libiconv < Formula
   mirror "https://ftp.gnu.org/gnu/libiconv/libiconv-1.14.tar.gz"
   sha256 "72b24ded17d687193c3366d0ebe7cde1e6b18f0df8c55438ac95be39e8a30613"
 
+  bottle do
+    sha256 "64d8a9383ba42ba3e41422bb8548ebc8f296f67fdda6e6d6a324f990b03c6db0" => :el_capitan
+    sha256 "a0d9ff36269bc908fde4a039d2083152202055a2e053b6582ad2c9063c85ebc2" => :yosemite
+    sha256 "456a816a94427c963fa3cb90257830aa33268f22443cf5a8a4cf1be3e3ed3bb9" => :mavericks
+  end
+
   keg_only :provided_by_osx
 
   option :universal
