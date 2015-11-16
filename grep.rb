@@ -1,25 +1,23 @@
 class Grep < Formula
   homepage "https://www.gnu.org/software/grep/"
-  url "http://ftpmirror.gnu.org/grep/grep-2.21.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/grep/grep-2.21.tar.xz"
-  sha256 "5244a11c00dee8e7e5e714b9aaa053ac6cbfa27e104abee20d3c778e4bb0e5de"
+  url "http://ftpmirror.gnu.org/grep/grep-2.22.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/grep/grep-2.22.tar.xz"
+  sha256 "ca91d22f017bfcb503d4bc3b44295491c89a33a3df0c3d8b8614f2d3831836eb"
 
+  depends_on "pkg-config" => :build
   depends_on "pcre"
 
   option "with-default-names", "Do not prepend 'g' to the binary"
   deprecated_option "default-names" => "with-default-names"
 
   def install
-    pcre = Formula["pcre"].opt_prefix
-    ENV.append "LDFLAGS", "-L#{pcre}/lib -lpcre"
-    ENV.append "CPPFLAGS", "-I#{pcre}/include"
-
     args = %W[
       --disable-dependency-tracking
       --disable-nls
       --prefix=#{prefix}
       --infodir=#{info}
       --mandir=#{man}
+      --with-packager=Homebrew
     ]
 
     args << "--program-prefix=g" if build.without? "default-names"
