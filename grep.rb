@@ -4,6 +4,13 @@ class Grep < Formula
   mirror "https://ftp.gnu.org/gnu/grep/grep-2.22.tar.xz"
   sha256 "ca91d22f017bfcb503d4bc3b44295491c89a33a3df0c3d8b8614f2d3831836eb"
 
+  bottle do
+    cellar :any
+    sha256 "ac48dac81378a30fd944bf448fcfd702072dd3f1f17e38ed5bc1a6384a059ad9" => :el_capitan
+    sha256 "951b5bdb7ca52667e9727d0dab88994adbf698c3baec86e8236c089a437716c0" => :yosemite
+    sha256 "370adbdedbac64454575d541851d32ffa98bdf1e13855c2a394ae906f28780c0" => :mavericks
+  end
+
   depends_on "pkg-config" => :build
   depends_on "pcre"
 
