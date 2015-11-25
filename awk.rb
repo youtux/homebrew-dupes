@@ -1,4 +1,5 @@
 class Awk < Formula
+  desc "Text processing scripting language"
   homepage "http://www.cs.princeton.edu/~bwk/btl.mirror/"
   url "http://www.cs.princeton.edu/~bwk/btl.mirror/awk.tar.gz"
   version "20121220"
