@@ -1,7 +1,8 @@
 class AppleGcc42 < Formula
+  desc "GNU compiler collection"
   homepage "http://r.research.att.com/tools/"
   url "http://r.research.att.com/tools/gcc-42-5666.3-darwin11.pkg"
-  mirror "http://web.archive.org/web/20130512150329/http://r.research.att.com/tools/gcc-42-5666.3-darwin11.pkg"
+  mirror "https://web.archive.org/web/20130512150329/http://r.research.att.com/tools/gcc-42-5666.3-darwin11.pkg"
   version "4.2.1-5666.3"
   sha256 "2f3893b411f578bfa98a99646ecfea0ba14e1bff4e4f311d7e595936d0da065d"
 
