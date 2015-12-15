@@ -31,7 +31,7 @@ class Openldap < Formula
       --localstatedir=#{var}
     ]
 
-    args << "--enable-bdb=no" << "--enable-hdb=no" if build.without? "berkeley-db"
+    args << "--enable-bdb=no" << "--enable-hdb=no" if build.without? "berkeley-db4"
     args << "--enable-memberof" if build.with? "memberof"
     args << "--enable-unique" if build.with? "unique"
     args << "--enable-sssvlv=yes" if build.with? "sssvlv"
