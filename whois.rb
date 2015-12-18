@@ -7,10 +7,10 @@ class Whois < Formula
   head "https://github.com/rfc1036/whois.git"
 
   bottle do
-    cellar :any
-    sha256 "dfc6cf475084c4be2bf97f5580f7042a42a3ab2a6ed40fcf696e6aa0b7f099a7" => :yosemite
-    sha256 "73ab04806e94eadb9406c1f90108d03ba298669bc5e82abdbb2f9300ac8da911" => :mavericks
-    sha256 "2f276552ccb9ed7091913dae5d0548a06a9a0332e8d18b91a22033fee46f4c39" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "eafa98fa8f1b09b5339ea684cd0231abbca301aa2bd5397cc4ca67bd3752f3a6" => :el_capitan
+    sha256 "8b0dd75a7b4b8bdc1416ea925d41f551b1dff915de2cfe3543258f2c642bfbb6" => :yosemite
+    sha256 "bc20602cba3eba5eb471996236375ca07462ebd47f88387a98d2f8196dfb8a08" => :mavericks
   end
 
   def install
