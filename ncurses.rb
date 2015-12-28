@@ -4,6 +4,7 @@ class Ncurses < Formula
   url "http://ftpmirror.gnu.org/ncurses/ncurses-6.0.tar.gz"
   mirror "https://ftp.gnu.org/gnu/ncurses/ncurses-6.0.tar.gz"
   sha256 "f551c24b30ce8bfb6e96d9f59b42fbea30fa3a6123384172f9e7284bcf647260"
+  revision 1
 
   bottle do
     sha256 "35002657024c9534c10f1e4d9d157e4888d9ca32e38fb190a73a83af3ec7a393" => :yosemite
@@ -15,6 +16,8 @@ class Ncurses < Formula
 
   option :universal
 
+  depends_on "pkg-config" => :build
+
   def install
     ENV.universal_binary if build.universal?
 
@@ -25,11 +28,11 @@ class Ncurses < Formula
     # Disable linemarker output of cpp
     ENV.append "CPPFLAGS", "-P"
 
-    ENV["PKG_CONFIG_LIBDIR"] = "#{lib}/pkgconfig"
     (lib/"pkgconfig").mkpath
 
     system "./configure", "--prefix=#{prefix}",
                           "--enable-pc-files",
+                          "--with-pkg-config-libdir=#{lib}/pkgconfig",
                           "--enable-sigwinch",
                           "--enable-symlinks",
                           "--enable-widec",
@@ -81,11 +84,10 @@ class Ncurses < Formula
     ENV["TERM"] = "xterm"
     system bin/"tput", "cols"
 
-    cd prefix/"test" do
-      system "./configure", "--prefix=#{testpath}/test",
-                            "--with-curses-dir=#{prefix}"
-      system "make", "install"
-    end
+    system prefix/"test/configure", "--prefix=#{testpath}/test",
+                                    "--with-curses-dir=#{prefix}"
+    system "make", "install"
+
     system testpath/"test/bin/keynames"
     system testpath/"test/bin/test_arrays"
     system testpath/"test/bin/test_vidputs"
