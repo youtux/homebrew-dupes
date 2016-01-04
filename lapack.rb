@@ -1,7 +1,8 @@
 class Lapack < Formula
+  desc "Linear Algebra PACKage"
   homepage "http://www.netlib.org/lapack/"
-  url "http://www.netlib.org/lapack/lapack-3.5.0.tgz"
-  sha256 "9ad8f0d3f3fb5521db49f2dd716463b8fb2b6bc9dc386a9956b8c6144f726352"
+  url "http://www.netlib.org/lapack/lapack-3.6.0.tgz"
+  sha256 "a9a0082c918fe14e377bbd570057616768dca76cbdc713457d8199aaa233ffc3"
 
   bottle do
     cellar :any
@@ -12,18 +13,32 @@ class Lapack < Formula
 
   resource "manpages" do
     url "http://netlib.org/lapack/manpages.tgz"
-    version "3.5.0"
     sha256 "055da7402ea807cc16f6c50b71ac63d290f83a5f2885aa9f679b7ad11dd8903d"
   end
 
+  keg_only :provided_by_osx
+
   depends_on :fortran
   depends_on "cmake" => :build
-
-  keg_only :provided_by_osx
 
   def install
     system "cmake", ".", "-DBUILD_SHARED_LIBS:BOOL=ON", "-DLAPACKE:BOOL=ON", *std_cmake_args
     system "make", "install"
     man.install resource("manpages")
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include "lapacke.h"
+      int main() {
+        void *p = LAPACKE_malloc(sizeof(char)*100);
+        if (p) {
+          LAPACKE_free(p);
+        }
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.cpp", "-L#{lib}", "-I#{include}", "-llapacke", "-o", "test"
+    system "./test"
   end
 end
