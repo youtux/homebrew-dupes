@@ -7,10 +7,9 @@ class Openldap < Formula
 
   bottle do
     cellar :any
-    revision 2
-    sha256 "81f9dccc22a34b5130b7caaae0dd1c0b70c3dcd4c5ca112ab49b6607c43ede55" => :el_capitan
-    sha256 "8d29c235baa09f281889ce61fab4eb75d6d7cf0a1abdaf3d9b892b494059abf7" => :yosemite
-    sha256 "ad8c3fa83b3e86eb71460a9d747802e0940e9f7e2ab32795cef92c73eddd5763" => :mavericks
+    sha256 "853d71820cbb7f604004c4f6d4f0196610d5df5a7b71be9480d5439567943853" => :el_capitan
+    sha256 "0b59c5418184ff1a96514369ddf34d8388c8f1306d2231d831b7984a74b4f48f" => :yosemite
+    sha256 "210e5b3b003c0b47a5c2f0274255fff80424576de46cda43525919db6e6fd7a6" => :mavericks
   end
 
   option "with-memberof", "Include memberof overlay"
