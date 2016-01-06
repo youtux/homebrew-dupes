@@ -1,4 +1,5 @@
 class Xar < Formula
+  desc "eXtensible ARchiver"
   homepage "https://code.google.com/p/xar/"
   url "https://xar.googlecode.com/files/xar-1.5.2.tar.gz"
   sha256 "4c5d5682803cdfab16d72365cf51fc4075d597c5eeaa8c7d1990fea98cdae3e6"
@@ -10,9 +11,9 @@ class Xar < Formula
     sha256 "1a78012dc77213f699d3dc4f061b9fe5add0c6a53699dcec69b31ce1cb72e7fa" => :mountain_lion
   end
 
-  depends_on "openssl"
-
   keg_only :provided_by_osx
+
+  depends_on "openssl"
 
   # Known issue upstream:
   # https://code.google.com/p/xar/issues/detail?id=51
@@ -29,7 +30,7 @@ class Xar < Formula
     touch "testfile.txt"
     system bin/"xar", "-cv", "testfile.txt", "-f", "test.xar"
     assert File.exist?("test.xar")
-    assert_match /testfile.txt/, shell_output("#{bin}/xar -tv -f test.xar")
+    assert_match "testfile.txt", shell_output("#{bin}/xar -tv -f test.xar")
   end
 end
 
