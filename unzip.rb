@@ -1,4 +1,5 @@
 class Unzip < Formula
+  desc "Extraction utility for .zip compressed archives"
   homepage "http://www.info-zip.org/pub/infozip/UnZip.html"
   url "https://downloads.sourceforge.net/project/infozip/UnZip%206.x%20%28latest%29/UnZip%206.0/unzip60.tar.gz"
   version "6.0"
