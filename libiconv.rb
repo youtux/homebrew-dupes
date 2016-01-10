@@ -1,4 +1,5 @@
 class Libiconv < Formula
+  desc "Conversion library"
   homepage "https://www.gnu.org/software/libiconv/"
   url "http://ftpmirror.gnu.org/libiconv/libiconv-1.14.tar.gz"
   mirror "https://ftp.gnu.org/gnu/libiconv/libiconv-1.14.tar.gz"
