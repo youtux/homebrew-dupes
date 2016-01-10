@@ -6,10 +6,11 @@ class Diffstat < Formula
   sha256 "2032e418b43bae70d548e32da901ebc4ac12972381de1314bebde0b126fb0123"
 
   bottle do
-    cellar :any
-    sha256 "84df5b412baa164e5c84944dcc2d99549123543994ede36464aa20a7d53316bc" => :yosemite
-    sha256 "5562f4fa71c14c113123a68253661927afe7a166be031cf7637439b64b85843a" => :mavericks
-    sha256 "182a35fea3273f03374018f28242ce048f8f55c6eff055dba117a1de256fe933" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "a668a1005bd2637d1e8d53981e7ab245d436f5edf12aaf3d50b9586dc2c34d60" => :el_capitan
+    sha256 "e0c5096b5a5a8a9fba502479897950c3d040aeb6026c7907a8a49320b0d15012" => :yosemite
+    sha256 "d70bbd3435223cafaaf268ed55ef4152a56ff03daee138775561a6d96ef51e1c" => :mavericks
   end
 
   def install
