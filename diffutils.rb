@@ -1,4 +1,5 @@
 class Diffutils < Formula
+  desc "File comparison utilities"
   homepage "https://www.gnu.org/s/diffutils/"
   url "http://ftpmirror.gnu.org/diffutils/diffutils-3.3.tar.xz"
   mirror "https://ftp.gnu.org/gnu/diffutils/diffutils-3.3.tar.xz"
@@ -7,5 +8,11 @@ class Diffutils < Formula
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"a").write "foo"
+    (testpath/"b").write "foo"
+    system "#{bin}/diff", "a", "b"
   end
 end
