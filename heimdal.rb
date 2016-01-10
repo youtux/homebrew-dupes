@@ -1,6 +1,7 @@
 class Heimdal < Formula
-  homepage "http://www.h5l.org"
-  url "http://www.h5l.org/dist/src/heimdal-1.6rc2.tar.gz"
+  desc "Free Kerberos 5 implementation"
+  homepage "https://www.h5l.org"
+  url "https://www.h5l.org/dist/src/heimdal-1.6rc2.tar.gz"
   sha256 "8fe19e0f12ff0d0c2f20a6cf56727deaabd89db9c197288022fb489e103b730d"
   revision 1
 
