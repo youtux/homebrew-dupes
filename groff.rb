@@ -1,4 +1,5 @@
 class Groff < Formula
+  desc "GNU troff text-formatting system"
   homepage "https://www.gnu.org/software/groff/"
   url "http://ftpmirror.gnu.org/groff/groff-1.22.3.tar.gz"
   mirror "https://ftp.gnu.org/gnu/groff/groff-1.22.3.tar.gz"
@@ -44,6 +45,11 @@ class Groff < Formula
     Attempting to use PDF or HTML output support without using --with-gropdf or
     --with-grohtml may result in errors.
     EOS
+  end
+
+  test do
+    assert_match "homebrew\n",
+      pipe_output("#{bin}/groff -a", "homebrew\n")
   end
 end
 
