@@ -6,10 +6,11 @@ class Ed < Formula
   sha256 "bd146ede5f225e20946ad94ef6bdf07939313bcc41dde5d2beedcea1a147a134"
 
   bottle do
-    cellar :any
-    sha256 "920dbc17341d294763705acfb77279d81c36d6264417356b0a3ead9c0b230254" => :yosemite
-    sha256 "65abafbca71eea0d0ca13e39deb2f9ee81b8330efe28c7184a833efc0838da07" => :mavericks
-    sha256 "3794a3703823cbd4c8ccd68a3c7c3e1462748ffdc82b01dfe03823948541d3f3" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "0483e2e285cb3ef963b89e08975c52bbbe82ef34c201ecc6317b1cd317de2a1d" => :el_capitan
+    sha256 "eb947b54aff24f71ffdc1ab97befb21e386940fc2c42b56d7abf85112e70ced6" => :yosemite
+    sha256 "57c2cca9fa0ee55465d40efa2ab45250e1161412c62217fd2369ad3594794654" => :mavericks
   end
 
   deprecated_option "default-names" => "with-default-names"
