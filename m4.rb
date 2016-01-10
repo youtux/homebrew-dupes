@@ -1,4 +1,5 @@
 class M4 < Formula
+  desc "Macro processing language"
   homepage "https://www.gnu.org/software/m4"
   url "http://ftpmirror.gnu.org/m4/m4-1.4.17.tar.xz"
   mirror "https://ftp.gnu.org/gnu/m4/m4-1.4.17.tar.xz"
@@ -10,5 +11,10 @@ class M4 < Formula
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
+  end
+
+  test do
+    assert_match "Homebrew",
+      pipe_output("#{bin}/m4", "define(TEST, Homebrew)\nTEST\n")
   end
 end
