@@ -1,4 +1,5 @@
 class Gpatch < Formula
+  desc "Apply a diff file to an original"
   homepage "https://savannah.gnu.org/projects/patch/"
   url "http://ftpmirror.gnu.org/patch/patch-2.7.5.tar.xz"
   mirror "https://ftp.gnu.org/gnu/patch/patch-2.7.5.tar.xz"
@@ -14,5 +15,18 @@ class Gpatch < Formula
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    testfile = testpath/"test"
+    testfile.write "homebrew\n"
+    patch = <<-EOS.undent
+      1c1
+      < homebrew
+      ---
+      > hello
+    EOS
+    pipe_output("#{bin}/patch #{testfile}", patch)
+    assert_equal "hello", testfile.read.chomp
   end
 end
