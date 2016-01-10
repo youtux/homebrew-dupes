@@ -1,4 +1,5 @@
 class Grep < Formula
+  desc "GNU grep, egrep and fgrep"
   homepage "https://www.gnu.org/software/grep/"
   url "http://ftpmirror.gnu.org/grep/grep-2.22.tar.xz"
   mirror "https://ftp.gnu.org/gnu/grep/grep-2.22.tar.xz"
@@ -11,11 +12,11 @@ class Grep < Formula
     sha256 "370adbdedbac64454575d541851d32ffa98bdf1e13855c2a394ae906f28780c0" => :mavericks
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "pcre"
-
   option "with-default-names", "Do not prepend 'g' to the binary"
   deprecated_option "default-names" => "with-default-names"
+
+  depends_on "pkg-config" => :build
+  depends_on "pcre"
 
   def install
     args = %W[
@@ -47,7 +48,7 @@ class Grep < Formula
     text_file = testpath/"file.txt"
     text_file.write "This line should be matched"
     cmd = build.with?("default-names") ? "grep" : "ggrep"
-    grepped = shell_output("#{bin}/#{cmd} 'match' #{text_file}")
-    assert_match /should be matched/, grepped
+    grepped = shell_output("#{bin}/#{cmd} match #{text_file}")
+    assert_match "should be matched", grepped
   end
 end
