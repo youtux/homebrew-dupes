@@ -1,5 +1,6 @@
 # "File" is a reserved class name
 class FileFormula < Formula
+  desc "Utility to determine file types"
   homepage "http://www.darwinsys.com/file/"
   url "ftp://ftp.astron.com/pub/file/file-5.24.tar.gz"
   mirror "https://fossies.org/linux/misc/file-5.24.tar.gz"
@@ -20,5 +21,9 @@ class FileFormula < Formula
                           "--prefix=#{prefix}",
                           "--enable-fsect-man5"
     system "make", "install"
+  end
+
+  test do
+    system "#{bin}/file", test_fixtures("test.mp3")
   end
 end
