@@ -1,4 +1,5 @@
 class Diffstat < Formula
+  desc "Produce graph of changes introduced by a diff file"
   homepage "http://invisible-island.net/diffstat/"
   url "https://mirrors.kernel.org/debian/pool/main/d/diffstat/diffstat_1.60.orig.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/diffstat/diffstat_1.60.orig.tar.gz"
