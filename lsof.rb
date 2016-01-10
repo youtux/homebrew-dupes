@@ -1,4 +1,5 @@
 class Lsof < Formula
+  desc "Utility to list open files"
   homepage "http://people.freebsd.org/~abe/"
   url "ftp://sunsite.ualberta.ca/pub/Mirror/lsof/lsof_4.88.tar.bz2"
   mirror "http://mirror.jaredwhiting.net/distfiles/lsof_4.88.tar.bz2"
@@ -19,6 +20,12 @@ class Lsof < Formula
       system "./Configure", "-n", "darwin"
       system "make"
       bin.install "lsof"
+    end
+  end
+
+  test do
+    (testpath/"test").open("w") do
+      system "#{bin}/lsof", testpath/"test"
     end
   end
 end
