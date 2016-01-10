@@ -1,4 +1,5 @@
 class Less < Formula
+  desc "Pager program similar to more"
   homepage "http://www.greenwoodsoftware.com/less/index.html"
   url "http://www.greenwoodsoftware.com/less/less-481.tar.gz"
   sha256 "3fa38f2cf5e9e040bb44fffaa6c76a84506e379e47f5a04686ab78102090dda5"
