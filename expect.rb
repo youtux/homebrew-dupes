@@ -1,4 +1,5 @@
 class Expect < Formula
+  desc "Program that can automate interactive applications"
   homepage "http://expect.sourceforge.net"
   url "https://downloads.sourceforge.net/project/expect/Expect/5.45/expect5.45.tar.gz"
   sha256 "b28dca90428a3b30e650525cdc16255d76bb6ccd65d448be53e620d95d5cc040"
