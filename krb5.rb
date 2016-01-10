@@ -1,7 +1,8 @@
 class Krb5 < Formula
+  desc "Network authentication protocol"
   homepage "http://web.mit.edu/kerberos/"
-  url "http://web.mit.edu/kerberos/dist/krb5/1.13/krb5-1.13-signed.tar"
-  sha256 "dc8f79ae9ab777d0f815e84ed02ac4ccfe3d5826eb4947a195dfce9fd95a9582"
+  url "http://web.mit.edu/kerberos/dist/krb5/1.14/krb5-1.14.tar.gz"
+  sha256 "cedb07fad8331e3ff2983d26e977a2ddba622f379c2b19bfea85bd695930f9e9"
 
   bottle do
     sha256 "6d0e91f4f9f4ad6c7807f8164c81f379cf89a1003fc1ac6c1c50b20924cd5e54" => :yosemite
@@ -14,8 +15,7 @@ class Krb5 < Formula
   depends_on "openssl"
 
   def install
-    system "tar", "zxf", "krb5-#{version}.tar.gz"
-    cd "krb5-#{version}/src" do
+    cd "src" do
       system "./configure",
         "--disable-debug",
         "--disable-dependency-tracking",
@@ -28,6 +28,7 @@ class Krb5 < Formula
 
   test do
     system "#{bin}/krb5-config", "--version"
-    `#{bin}/krb5-config --cflags`.include? include
+    assert_match include.to_s,
+      shell_output("#{bin}/krb5-config --cflags")
   end
 end
