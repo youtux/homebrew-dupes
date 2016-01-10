@@ -1,4 +1,5 @@
 class Ed < Formula
+  desc "Classic UNIX line editor"
   homepage "https://www.gnu.org/software/ed/ed.html"
   url "http://ftpmirror.gnu.org/ed/ed-1.11.tar.lz"
   mirror "https://ftp.gnu.org/gnu/ed/ed-1.11.tar.lz"
@@ -25,17 +26,18 @@ class Ed < Formula
     system "make", "install"
   end
 
-  test do
-    (testpath/"test").write "Hello world"
-    `echo ',s/o//\nw' | #{bin}/ged -s #{testpath}/test`
-    assert_equal "Hell world", (testpath/"test").read.chomp
-  end
-
   def caveats
     if build.without? "default-names" then <<-EOS.undent
       The command has been installed with the prefix "g".
       If you do not want the prefix, reinstall using the "with-default-names" option.
       EOS
     end
+  end
+
+  test do
+    testfile = (testpath/"test")
+    testfile.write "Hello world"
+    pipe_output("#{bin}/ged -s #{testfile}", ",s/o//\nw\n")
+    assert_equal "Hell world", testfile.read.chomp
   end
 end
