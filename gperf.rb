@@ -1,4 +1,5 @@
 class Gperf < Formula
+  desc "Perfect hash function generator"
   homepage "https://www.gnu.org/software/gperf"
   url "http://ftpmirror.gnu.org/gperf/gperf-3.0.4.tar.gz"
   mirror "https://ftp.gnu.org/pub/gnu/gperf/gperf-3.0.4.tar.gz"
@@ -12,6 +13,7 @@ class Gperf < Formula
   end
 
   test do
-    system "#{bin}/gperf", "--version"
+    assert_match "TOTAL_KEYWORDS 3",
+      pipe_output("#{bin}/gperf", "homebrew\nfoobar\ntest\n")
   end
 end
