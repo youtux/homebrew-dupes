@@ -5,6 +5,12 @@ class Groff < Formula
   mirror "https://ftp.gnu.org/gnu/groff/groff-1.22.3.tar.gz"
   sha256 "3a48a9d6c97750bfbd535feeb5be0111db6406ddb7bb79fc680809cda6d828a5"
 
+  bottle do
+    sha256 "c606ada7a9a36347de1da1b8afb985e366430a7829b4521659a735fcfa287242" => :el_capitan
+    sha256 "ebe38751269dc365aaf656c980455b45292288b5b8ecaa709af1c9f073b8019c" => :yosemite
+    sha256 "f93c76d63a4b2aea4be979cc3331e9a617fcaa35418979c6f2bdee1817813b2f" => :mavericks
+  end
+
   option "with-gropdf", "Enable PDF output support"
   option "with-grohtml", "Enable HTML output support (implies --with-gropdf)"
   option "with-gpresent", "Install macros for the presentations document format"
