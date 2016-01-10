@@ -6,10 +6,11 @@ class Gpatch < Formula
   sha256 "fd95153655d6b95567e623843a0e77b81612d502ecf78a489a4aed7867caa299"
 
   bottle do
-    cellar :any
-    sha256 "ab9aa437d65dec4efc338d2c668dc79afec6bb6fb2c55ef2ece5de090fa04a74" => :yosemite
-    sha256 "b2bbd27b9645a1cb997157dcb79ad35d6166d64e28ab0ef19688855245b9ed6b" => :mavericks
-    sha256 "4dbe6b5b946f34a0a4a2aa3b493c248a624c2f40a9ccb5bd7ac49a7a59cb80d6" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "526112f0034e80e4b830d6a4b486073be6ea79743a1f4cb7b96e7564bf9dbae4" => :el_capitan
+    sha256 "6de31643dafee3863e42bfff45ad8b128bd45fa02ea46a9a98732ad84e8b59ed" => :yosemite
+    sha256 "0eee795f5f3c9d9e33bfcf83a207cea34fa41f4077fe99e0edc3ff894aedad41" => :mavericks
   end
 
   def install
