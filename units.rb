@@ -1,4 +1,5 @@
 class Units < Formula
+  desc "Utility to convert between different systems of units"
   homepage "https://www.gnu.org/software/units/"
   url "http://ftpmirror.gnu.org/units/units-2.01.tar.gz"
   mirror "https://ftp.gnu.org/gnu/units/units-2.01.tar.gz"
@@ -8,7 +9,8 @@ class Units < Formula
     "OS X provides BSD units, which behaves differently from GNU units."
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "check"
 
@@ -17,6 +19,7 @@ class Units < Formula
   end
 
   test do
-    system %{[ $("#{bin}/units" '(((square(kiloinch)+2.84m2) /0.5) meters^2)^(1|4)' m | sed -n -e 's/[[:space:]]\\\* //p') = 6 ]}
+    assert_match "6\n",
+      shell_output("#{bin}/units '(((square(kiloinch)+2.84m2) /0.5) meters^2)^(1|4)' m").strip
   end
 end
