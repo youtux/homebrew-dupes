@@ -1,4 +1,5 @@
 class Make < Formula
+  desc "Utility for directing compilation"
   homepage "https://www.gnu.org/software/make/"
   url "http://ftpmirror.gnu.org/make/make-4.1.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/make/make-4.1.tar.bz2"
@@ -11,9 +12,9 @@ class Make < Formula
     sha256 "f63c015de69286e67e5884fce7a529fc4e9299167dd769414a25651507a7c7cc" => :mountain_lion
   end
 
-  depends_on "guile" => :optional
-
   option "with-default-names", "Do not prepend 'g' to the binary"
+
+  depends_on "guile" => :optional
 
   def install
     args = %W[
@@ -26,5 +27,17 @@ class Make < Formula
 
     system "./configure", *args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"Makefile").write <<-EOS.undent
+      default:
+      \t@echo Homebrew
+    EOS
+
+    cmd = build.with?("default-names") ? "make" : "gmake"
+
+    assert_equal "Homebrew\n",
+      shell_output("#{bin}/#{cmd}")
   end
 end
