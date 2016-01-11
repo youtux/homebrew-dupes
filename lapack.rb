@@ -5,10 +5,9 @@ class Lapack < Formula
   sha256 "a9a0082c918fe14e377bbd570057616768dca76cbdc713457d8199aaa233ffc3"
 
   bottle do
-    cellar :any
-    sha256 "b492305db3e74f7fde1d1798fbbb653c9caea0f7436e8bda5af2c19677909fc0" => :yosemite
-    sha256 "c099b310cbe3217266a9316cff77471c1c72ad0203def9776c851609e38ea789" => :mavericks
-    sha256 "cd6aea6fb9bc22942172bb532a0e6836320b28406341985a11fe9d1dd9ee62ff" => :mountain_lion
+    sha256 "4d50be768258fdc71923746dbd4c0f3ae0a26eb7d748d780c23e8926a1bc8f66" => :el_capitan
+    sha256 "d5062667c73c67e81d2b8c9d2c9bef5d2226f9bcfa6d8766429f5b3a0318657c" => :yosemite
+    sha256 "ea53fdfa5b8c5fa0127ba056e74a3ce2f292a3094c6ea1f85a1d841732e56f05" => :mavericks
   end
 
   resource "manpages" do
