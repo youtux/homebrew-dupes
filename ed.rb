@@ -7,10 +7,9 @@ class Ed < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "0483e2e285cb3ef963b89e08975c52bbbe82ef34c201ecc6317b1cd317de2a1d" => :el_capitan
-    sha256 "eb947b54aff24f71ffdc1ab97befb21e386940fc2c42b56d7abf85112e70ced6" => :yosemite
-    sha256 "57c2cca9fa0ee55465d40efa2ab45250e1161412c62217fd2369ad3594794654" => :mavericks
+    sha256 "54c52be45bd1e33bcc50aab372e9ba3c2ef1cc7de5412b568710aa4ad1a55129" => :el_capitan
+    sha256 "3992f9c431767907a9156ff007dd9431406dd384394d2da8fd48eb43b6baeb57" => :yosemite
+    sha256 "10f5f317d4a6943c53b58fa937e9a14214a164b3cd764e2b747473b230b8a2a1" => :mavericks
   end
 
   deprecated_option "default-names" => "with-default-names"
