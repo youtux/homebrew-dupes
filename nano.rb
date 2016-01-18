@@ -6,9 +6,9 @@ class Nano < Formula
 
   bottle do
     cellar :any
-    sha256 "35b4a4014ab36ccfa89aa38c74ae8179c26de5d786d08fee33a852ab397ad0b9" => :el_capitan
-    sha256 "f42d3c2164c916f2ae0596bd30b64251568b710e79b7260e80a655abbef66f51" => :yosemite
-    sha256 "e21a36b319b7a8abdc5f3a082f681d773ad1c8337b94805636c542594ae07798" => :mavericks
+    sha256 "9e802c7b762a04264d74abe0806fec3cccc56058cd13c523e68a403ecaa939cf" => :el_capitan
+    sha256 "a4603e9da97b416fe6bdbb56a18a547b42e0c372aa996b024da61aa7def41012" => :yosemite
+    sha256 "b803822ca3dbb21cffd5003bc4e49258ca655ae6920c060ba2c047e591ce7b0d" => :mavericks
   end
 
   head do
