@@ -1,9 +1,10 @@
 class Rsync < Formula
   desc "Utility that provides fast incremental file transfer"
   homepage "https://rsync.samba.org/"
-  url "https://rsync.samba.org/ftp/rsync/rsync-3.1.1.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/r/rsync/rsync_3.1.1.orig.tar.gz"
-  sha256 "7de4364fcf5fe42f3bdb514417f1c40d10bbca896abe7e7f2c581c6ea08a2621"
+  url "https://rsync.samba.org/ftp/rsync/rsync-3.1.2.tar.gz"
+  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.1.2.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.1.2.tar.gz"
+  sha256 "ecfa62a7fa3c4c18b9eccd8c16eaddee4bd308a76ea50b5c02a5840f09c0a1c2"
 
   bottle do
     cellar :any
@@ -16,23 +17,15 @@ class Rsync < Formula
   depends_on "autoconf" => :build
 
   if OS.mac?
-    patch do
-      url "https://raw.githubusercontent.com/DomT4/scripts/d47dd65dbae/Homebrew_Resources/MacPorts_Import/rsync/r127713/patch-fileflags.diff"
-      mirror "https://trac.macports.org/export/127713/trunk/dports/net/rsync/files/patch-fileflags.diff"
-      sha256 "b50f0ad6d2c20e561e17b64f07545b1ecfe7d61481a6e5af192abfe21af01e73"
-    end
-
-    patch do
-      url "https://raw.githubusercontent.com/DomT4/scripts/d47dd65dbae/Homebrew_Resources/MacPorts_Import/rsync/r127713/patch-crtimes.diff"
-      mirror "https://trac.macports.org/export/127713/trunk/dports/net/rsync/files/patch-crtimes.diff"
-      sha256 "396e552b1f51ee10c21f27afc73b75b2d421272443d15d2a5539ac641c32cbb1"
-    end
-
-    patch do
-      url "https://raw.githubusercontent.com/DomT4/scripts/d47dd65dbae/Homebrew_Resources/MacPorts_Import/rsync/r127713/patch-hfs-compression.diff"
-      mirror "https://trac.macports.org/export/127713/trunk/dports/net/rsync/files/patch-hfs-compression.diff"
-      sha256 "134483ab33fdaa67d503dc4011656913321f9e405639fab96d48ef54e08dfa1f"
-    end
+      patch do
+        url "https://download.samba.org/pub/rsync/src/rsync-patches-3.1.2.tar.gz"
+        mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-patches-3.1.2.tar.gz"
+        mirror "https://launchpad.net/rsync/main/3.1.2/+download/rsync-patches-3.1.2.tar.gz"
+        sha256 "edeebe9f2532ae291ce43fb86c9d7aaf80ba4edfdad25dce6d42dc33286b2326"
+        apply "patches/fileflags.diff",
+              "patches/crtimes.diff",
+              "patches/hfs-compression.diff"
+      end
   end
 
   def install
