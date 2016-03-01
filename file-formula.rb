@@ -16,11 +16,17 @@ class FileFormula < Formula
 
   keg_only :provided_by_osx
 
+  depends_on "libmagic"
+
   def install
+    # Clean up "src/magic.h" as per http://bugs.gw.com/view.php?id=330
+    rm "src/magic.h"
+
     system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-fsect-man5"
-    system "make", "install"
+                          "--prefix=#{prefix}"
+    system "make", "install-exec"
+    system "make", "-C", "doc", "install-man1"
+    rm_r lib
   end
 
   test do
