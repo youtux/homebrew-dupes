@@ -10,20 +10,23 @@ class Lapack < Formula
     sha256 "ea53fdfa5b8c5fa0127ba056e74a3ce2f292a3094c6ea1f85a1d841732e56f05" => :mavericks
   end
 
-  resource "manpages" do
-    url "http://netlib.org/lapack/manpages.tgz"
-    sha256 "055da7402ea807cc16f6c50b71ac63d290f83a5f2885aa9f679b7ad11dd8903d"
-  end
 
   keg_only :provided_by_osx
+
+  option "with-doxygen", "Build man pages with Doxygen"
+  depends_on "doxygen" => :optional
 
   depends_on :fortran
   depends_on "cmake" => :build
 
   def install
+    if build.with? "doxygen"
+      mv "make.inc.example", "make.inc"
+      system "make", "man"
+      man3.install Dir["DOCS/man/man3/*"]
+    end
     system "cmake", ".", "-DBUILD_SHARED_LIBS:BOOL=ON", "-DLAPACKE:BOOL=ON", *std_cmake_args
     system "make", "install"
-    man.install resource("manpages")
   end
 
   test do
