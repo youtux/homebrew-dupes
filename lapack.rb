@@ -5,9 +5,10 @@ class Lapack < Formula
   sha256 "a9a0082c918fe14e377bbd570057616768dca76cbdc713457d8199aaa233ffc3"
 
   bottle do
-    sha256 "4d50be768258fdc71923746dbd4c0f3ae0a26eb7d748d780c23e8926a1bc8f66" => :el_capitan
-    sha256 "d5062667c73c67e81d2b8c9d2c9bef5d2226f9bcfa6d8766429f5b3a0318657c" => :yosemite
-    sha256 "ea53fdfa5b8c5fa0127ba056e74a3ce2f292a3094c6ea1f85a1d841732e56f05" => :mavericks
+    revision 1
+    sha256 "1dbfb0c4eb4c5654e1f5f2712e7a69a764aa6560a1334f363ab8fd0946d4c281" => :el_capitan
+    sha256 "03154ac5c8cd043d8d13918488c5ddd960217673659cb4d9d14e0ca78ae2b04f" => :yosemite
+    sha256 "678c0f4325b788cd52ff06e51bc4186e8f0a2cd5625a3dfab15ddde648521659" => :mavericks
   end
 
 
