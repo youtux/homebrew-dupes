@@ -11,7 +11,6 @@ class Lapack < Formula
     sha256 "678c0f4325b788cd52ff06e51bc4186e8f0a2cd5625a3dfab15ddde648521659" => :mavericks
   end
 
-
   keg_only :provided_by_osx
 
   option "with-doxygen", "Build man pages with Doxygen"
