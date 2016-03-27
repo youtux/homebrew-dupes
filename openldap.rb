@@ -12,6 +12,8 @@ class Openldap < Formula
     sha256 "210e5b3b003c0b47a5c2f0274255fff80424576de46cda43525919db6e6fd7a6" => :mavericks
   end
 
+  keg_only :provided_by_osx
+
   option "with-memberof", "Include memberof overlay"
   option "with-unique", "Include unique overlay"
   option "with-sssvlv", "Enable server side sorting and virtual list view"
@@ -19,8 +21,6 @@ class Openldap < Formula
   depends_on "berkeley-db4" => :optional
   depends_on "groff" => :build unless OS.mac?
   depends_on "openssl"
-
-  keg_only :provided_by_osx
 
   def install
     args = %W[
