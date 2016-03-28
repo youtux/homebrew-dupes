@@ -6,11 +6,10 @@ class Gzip < Formula
   sha256 "eccbaa178c7801618c887956f1668d45bb57863a9d2678bfc3e36d01fb951904"
 
   bottle do
-    cellar :any
-    revision 1
-    sha256 "4f4a5361da0eb9b1f8769e9da586cb21f8b261bbd814afa00773d98c864c4797" => :yosemite
-    sha256 "f899ced33032b5fd323c0bc592345f7f2f02dedaadc5a0061b10e8780f1797da" => :mavericks
-    sha256 "605ab80dff19ad7dad9e95af772ffe45d5968738d5dbcece62be244acb789137" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "625966e71e8e1f4e7fbf18a04245d8eaa9f19cda4b6ba0a1da225bf2d45fe4f2" => :el_capitan
+    sha256 "0c3831ee6a76be8a6bcefbe70ec7110206e7f7d5b6424ff66d955d42c399bb85" => :yosemite
+    sha256 "e478304886a15ebf094e58b2c566f87a57729fab686b302018f4493c29185f0e" => :mavericks
   end
 
   def install
