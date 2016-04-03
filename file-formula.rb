@@ -1,7 +1,7 @@
 # "File" is a reserved class name
 class FileFormula < Formula
   desc "Utility to determine file types"
-  homepage "http://www.darwinsys.com/file/"
+  homepage "https://www.darwinsys.com/file/"
   url "ftp://ftp.astron.com/pub/file/file-5.25.tar.gz"
   mirror "https://fossies.org/linux/misc/file-5.25.tar.gz"
   sha256 "3735381563f69fb4239470b8c51b876a80425348b8285a7cded8b61d6b890eca"
