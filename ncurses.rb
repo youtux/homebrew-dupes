@@ -38,7 +38,8 @@ class Ncurses < Formula
                           "--enable-widec",
                           "--mandir=#{man}",
                           "--with-manpage-format=normal",
-                          "--with-shared"
+                          "--with-shared",
+                          "--with-gpm=no"
     system "make", "install"
     make_libncurses_symlinks
 
