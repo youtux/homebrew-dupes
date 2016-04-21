@@ -21,6 +21,7 @@ class Openssh < Formula
   depends_on "libressl" => :optional
   depends_on "ldns" => :optional
   depends_on "pkg-config" => :build if build.with? "ldns"
+  depends_on "libedit" => :build unless OS.mac?
 
   if OS.mac?
     # Both these patches are applied by Apple.
