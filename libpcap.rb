@@ -15,6 +15,11 @@ class Libpcap < Formula
 
   keg_only :provided_by_osx
 
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--enable-ipv6",
