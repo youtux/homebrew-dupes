@@ -1,9 +1,9 @@
 class Diffstat < Formula
   desc "Produce graph of changes introduced by a diff file"
   homepage "http://invisible-island.net/diffstat/"
-  url "https://mirrors.kernel.org/debian/pool/main/d/diffstat/diffstat_1.60.orig.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/diffstat/diffstat_1.60.orig.tar.gz"
-  sha256 "2032e418b43bae70d548e32da901ebc4ac12972381de1314bebde0b126fb0123"
+  url "https://mirrors.kernel.org/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz"
+  sha256 "25359e0c27183f997b36c9202583b5dc2df390c20e22a92606af4bf7856a55ee"
 
   bottle do
     cellar :any_skip_relocation
