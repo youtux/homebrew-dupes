@@ -23,7 +23,7 @@ class Ncurses < Formula
 
     # Fix the build for GCC 5.1
     # error: expected ')' before 'int' in definition of macro 'mouse_trafo'
-    # See http://lists.gnu.org/archive/html/bug-ncurses/2014-07/msg00022.html
+    # See https://lists.gnu.org/archive/html/bug-ncurses/2014-07/msg00022.html
     # and http://trac.sagemath.org/ticket/18301
     # Disable linemarker output of cpp
     ENV.append "CPPFLAGS", "-P"
