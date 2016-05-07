@@ -1,8 +1,10 @@
 class Lsof < Formula
   desc "Utility to list open files"
   homepage "https://people.freebsd.org/~abe/"
-  url "ftp://sunsite.ualberta.ca/pub/Mirror/lsof/lsof_4.88.tar.bz2"
-  mirror "http://mirror.jaredwhiting.net/distfiles/lsof_4.88.tar.bz2"
+  # 4.89 has major problems on OS X blocking upgrade for now.
+  # https://github.com/Homebrew/homebrew-dupes/pull/537
+  # url "ftp://sunsite.ualberta.ca/pub/Mirror/lsof/lsof_4.88.tar.bz2"
+  url "https://mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix/lsof/OLD/lsof_4.88.tar.bz2"
   sha256 "fe6f9b0e26b779ccd0ea5a0b6327c2b5c38d207a6db16f61ac01bd6c44e5c99b"
 
   bottle do
