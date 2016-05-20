@@ -14,6 +14,8 @@ class Units < Formula
   keg_only :provided_by_osx,
     "OS X provides BSD units, which behaves differently from GNU units."
 
+  depends_on "readline" unless OS.mac?
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
