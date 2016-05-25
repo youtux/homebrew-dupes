@@ -14,6 +14,8 @@ class Libedit < Formula
 
   keg_only :provided_by_osx
 
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
