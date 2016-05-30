@@ -6,6 +6,13 @@ class Unzip < Formula
   sha256 "036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37"
   revision 1
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "4ca114663551b5a11c372a9135d29e742bf8175de13b7b92fc0c7754237247d1" => :el_capitan
+    sha256 "2804c9bfc8c61959fe98e5b17c381ce8dfc7edfc650e46cb1af2dce824469ad2" => :yosemite
+    sha256 "fcd4872c9137a27d2d1c7029ee8f6679fd5f204dfb2452c3a9ff38f320311d51" => :mavericks
+  end
+
   keg_only :provided_by_osx
 
   # Upstream is unmaintained so we use the Ubuntu unzip-6.0-20ubuntu1 patchset:
