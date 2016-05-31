@@ -50,40 +50,34 @@ class Ncurses < Formula
   def make_libncurses_symlinks
     major = version.to_s.split(".")[0]
 
-    cd lib do
-      %w[form menu ncurses panel].each do |name|
-        if OS.mac?
-          ln_s "lib#{name}w.#{major}.dylib", "lib#{name}.dylib"
-          ln_s "lib#{name}w.#{major}.dylib", "lib#{name}.#{major}.dylib"
-        else
-          ln_s "lib#{name}w.so.#{major}", "lib#{name}.so"
-          ln_s "lib#{name}w.so.#{major}", "lib#{name}.so.#{major}"
-        end
-        ln_s "lib#{name}w.a", "lib#{name}.a"
-        ln_s "lib#{name}w_g.a", "lib#{name}_g.a"
-      end
-
-      ln_s "libncurses++w.a", "libncurses++.a"
-      ln_s "libncurses.a", "libcurses.a"
+    %w[form menu ncurses panel].each do |name|
       if OS.mac?
-        ln_s "libncurses.dylib", "libcurses.dylib"
+        lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.dylib"
+        lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.#{major}.dylib"
       else
-        ln_s "libncurses.so", "libcurses.so"
-        ln_s "libncurses.so", "libtinfo.so"
+        lib.install_symlink "lib#{name}w.so.#{major}" => "lib#{name}.so"
+        lib.install_symlink "lib#{name}w.so.#{major}" => "lib#{name}.so.#{major}"
       end
+      lib.install_symlink "lib#{name}w.a" => "lib#{name}.a"
+      lib.install_symlink "lib#{name}w_g.a" => "lib#{name}_g.a"
     end
 
-    cd lib/"pkgconfig" do
-      ln_s "ncursesw.pc", "ncurses.pc"
+    lib.install_symlink "libncurses++w.a" => "libncurses++.a"
+    lib.install_symlink "libncurses.a" => "libcurses.a"
+    if OS.mac?
+      lib.install_symlink "libncurses.dylib" => "libcurses.dylib"
+    else
+      lib.install_symlink "libncurses.so" => "libcurses.so"
+      lib.install_symlink "libncurses.so" => "libtinfo.so"
     end
 
-    cd bin do
-      ln_s "ncursesw#{major}-config", "ncurses#{major}-config"
-    end
+    (lib/"pkgconfig").install_symlink "ncursesw.pc" => "ncurses.pc"
 
-    ln_s [
+    bin.install_symlink "ncursesw#{major}-config" => "ncurses#{major}-config"
+
+    include.install_symlink [
       "ncursesw/curses.h", "ncursesw/form.h", "ncursesw/ncurses.h",
-      "ncursesw/term.h", "ncursesw/termcap.h"], include
+      "ncursesw/term.h", "ncursesw/termcap.h"]
   end
 
   test do
