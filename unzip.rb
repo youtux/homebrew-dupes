@@ -19,7 +19,7 @@ class Unzip < Formula
   # http://changelogs.ubuntu.com/changelogs/pool/main/u/unzip/unzip_6.0-20ubuntu1/changelog
   patch do
     url "https://launchpad.net/ubuntu/+archive/primary/+files/unzip_6.0-20ubuntu1.debian.tar.xz"
-    mirror "http://archive.ubuntu.com/ubuntu/pool/main/u/unzip/unzip_6.0-20ubuntu1.debian.tar.xz"
+    mirror "https://www.mirrorservice.org/sites/archive.ubuntu.com/ubuntu/pool/main/u/unzip/unzip_6.0-20ubuntu1.debian.tar.xz"
     sha256 "0ddf122ef15b739e3ea06db4b9e80f40759dce23a2c886678881453a43bd0842"
     apply %w[
       patches/01-manpages-in-section-1-not-in-section-1l
