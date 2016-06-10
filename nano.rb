@@ -4,6 +4,7 @@ class Nano < Formula
   url "http://www.nano-editor.org/dist/v2.5/nano-2.5.3.tar.gz"
   mirror "ftp://ftp.gnu.org/pub/gnu/nano/nano-2.5.3.tar.gz"
   sha256 "b2b060129b9feff2d4870d803a441178c96531de9aed144ec0b83bd63ccb12ee"
+  revision 1
 
   bottle do
     cellar :any
@@ -35,7 +36,6 @@ class Nano < Formula
                           "--enable-extra",
                           "--enable-multibuffer",
                           "--enable-nanorc",
-                          "--disable-nls",
                           "--enable-utf8"
     system "make", "install"
   end
